@@ -55,20 +55,65 @@ body {
   margin-bottom: 21.98px;
   margin-right: 5.7px;
 }
-.signUpForm {
+.signUpBlock {
+  box-sizing: border-box;
+  padding-left: 21px;
   flex-basis: 527.8px;
   height: 480px;
   background-color: #ffffff;
   font-family: 'Work Sans', sans-serif;
 }
-.signUpForm h1 {
+.signUpBlock h1 {
   font-size: 22px;
   line-height: 26px;
   letter-spacing: -0.46px;
-  margin: 38.52px 0 0 20.8px;
+  margin: 38.52px 0 0 0;
 }
-.signUpForm h2 {
+.signUpBlock h2 {
   font-weight: 300;
   font-size: 14px;
-  margin: 0 0 20px 20.8px;
+  margin: 0 0 16px 0;
+}
+.signUpBlock .signUpForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+.signUpBlock .signUpForm div {
+  margin-bottom: 10.3px;
+  margin-right: 15.3px;
+}
+.signUpBlock .signUpForm .signUpForm__label {
+  font-size: 12px;
+  line-height: 14px;
+  color: #7C7C7C;
+}
+.signUpBlock .signUpForm .signUpForm__input {
+  background: none;
+  border-width: 0 0 0.7px 0;
+  border-color: #F2F2F2;
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  outline: none;
+  padding: 4.5px 0 6.3px 0;
+  width: 234.5px;
+}
+.signUpBlock .signUpForm .nationality {
+  padding-bottom: 4.5px;
+}
+.signUpBlock .signUpForm .dateDay {
+  width: 56px;
+  margin-right: 4.8px;
+}
+.signUpBlock .signUpForm .dateMonth {
+  width: 91px;
+  margin-right: 4.8px;
+}
+.signUpBlock .signUpForm .dateYear {
+  width: 67.67px;
+}
+.signUpBlock .signUpForm .signUpForm__radio label {
+  font-size: 14px;
+  line-height: 16px;
 }
