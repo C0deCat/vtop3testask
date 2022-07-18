@@ -1,3 +1,74 @@
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ptsans/v17/jizaRExUiTo99u79P0U.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v17/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nWNig.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v17/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K8nXNig.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v17/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32KxfXNig.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v17/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXNig.ttf) format('truetype');
+}
 body {
-  background: green;
+  background-color: #f2f2f2;
+  display: flex;
+}
+.leftHeader {
+  flex-basis: 137.2px;
+  height: 480px;
+  background-color: #5A61ED;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.leftHeader div {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-orientation: mixed;
+  font: normal 400 49px / 63px 'PT Sans', sans-serif;
+  letter-spacing: 0.5px;
+  color: white;
+  margin-bottom: 21.98px;
+  margin-right: 5.7px;
+}
+.signUpForm {
+  flex-basis: 527.8px;
+  height: 480px;
+  background-color: #ffffff;
+  font-family: 'Work Sans', sans-serif;
+}
+.signUpForm h1 {
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: -0.46px;
+  margin: 38.52px 0 0 20.8px;
+}
+.signUpForm h2 {
+  font-weight: 300;
+  font-size: 14px;
+  margin: 0 0 20px 20.8px;
 }

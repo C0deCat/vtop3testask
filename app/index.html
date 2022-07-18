@@ -6,7 +6,76 @@
 	<link rel="stylesheet" href="css/main.css"> 
 </head>
 <body>
-	<h1>Это пафосный и крутой синхронный заголовок</h1>
-    Новый текст
+	<div class="leftHeader">
+		<div>Sign up</div>
+	</div>
+	<div class="signUpForm">
+		<h1>New user?</h1>
+		<h2>Use the form below to create your account</h2>
+		<form>
+			<div>
+				<label for="firstName">First Name</label>
+				<input type="text" id="firstName">
+			</div>
+			<div>
+				<label for="lastName">Last Name</label>
+				<input type="text" id="lastName">
+			</div>
+			<div>
+				<label for="nationality">Nationality</label>
+				<select id="nationality">
+					<option value="american" selected>American</option>
+					<option value="french">French</option>
+					<option value="russian">Russian</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+			<div>
+				<label for="email">E-mail</label>
+				<input type="email" id="email">
+			</div>
+			<div>
+				<label for="">Date of Birth</label>
+				<select id="day" name="day">
+				</select>
+				<select id="month" name="month">
+					<option selected>January</option>
+					<option>February</option>
+					<option>March</option>
+					<option>April</option>
+					<option>May</option>
+					<option>June</option>
+					<option>July</option>
+					<option>August</option>
+					<option>September</option>
+					<option>October</option>
+					<option>November</option>
+					<option>December</option>
+				</select>
+				<select id="year" name="year">
+				</select>
+			</div>
+			<div>
+				<label>Gender</label>
+				<span>
+					<input type="radio" name="genderChoice" id="male" value=true>
+					<label for="male">Male</label>
+					<input type="radio" name="genderChoice" id="female" value=false>
+					<label for="female">Female</label>
+				</span>
+			</div>
+			<div>
+				<label for="password">Password</label>
+				<input type="password" id="password">
+			</div>
+			<div>
+				<label for="confirmPassword">Confirm password</label>
+				<input type="password" id="confirmPassword">
+			</div>
+			<p>Have an account? <a href="#">Login</a></p>
+			<button>Complete Signup</button>
+		</form>
+	</div>
+	<script src="js/common.js"></script>
 </body>
 </html>
