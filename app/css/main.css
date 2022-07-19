@@ -34,8 +34,15 @@
   src: url(https://fonts.gstatic.com/s/worksans/v17/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXNig.ttf) format('truetype');
 }
 body {
+  margin: 0;
+}
+.page {
   background-color: #f2f2f2;
+  position: absolute;
+  height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .leftHeader {
   flex-basis: 137.2px;
@@ -185,4 +192,45 @@ body {
   line-height: 15px;
   margin-top: 94px;
   letter-spacing: -0.25px;
+}
+@media (max-width: 660px) {
+  .page {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .leftHeader {
+    flex-basis: auto;
+    height: auto;
+    width: 100%;
+    background-color: #5A61ED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .leftHeader div {
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-orientation: mixed;
+    font: normal 400 49px / 63px 'PT Sans', sans-serif;
+    letter-spacing: 0.5px;
+    color: white;
+    margin: 0;
+    padding: 15px 0 15px 0;
+  }
+  .signUpBlock {
+    height: auto;
+  }
+  .signUpBlock .signUpForm {
+    height: auto;
+  }
+  .signUpBlock .signUpForm .signUpForm__button {
+    margin: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+  .signUpBlock .signUpForm p {
+    margin: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
 }
