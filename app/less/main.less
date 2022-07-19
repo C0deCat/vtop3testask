@@ -48,9 +48,12 @@ body {
     .signUpForm {
         display: flex;
         flex-wrap: wrap;
+        align-content: flex-start;
+        height: 382px;
         div {
             margin-bottom: 10.3px;
             margin-right: 15.3px;
+            max-height: min-content;
         }
         .signUpForm__label {
             font-size: 12px;
@@ -85,9 +88,86 @@ body {
             width: 67.67px;
         }
 
-        .signUpForm__radio label {
+        .signUpForm__radio {
+            label {
+                font-size: 14px;
+                line-height: 16px;
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                padding-left: 18px;
+                margin-right: 15px;
+                margin-top: 4px;
+                margin-left: -1.5px;
+                user-select: none;
+
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+
+                .checkmark {
+                    position: absolute;
+                    top: 2px;
+                    left: 0;
+                    height: 12px;
+                    width: 12px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    border: 0.7px solid #5A61ED;
+                }
+
+                &:hover input ~ .checkmark {
+                    background-color: #f2f2f2;
+                }
+
+                input:checked ~ .checkmark {
+                    background-color: #FFF;
+                }
+
+                .checkmark:after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                    top: 3px;
+	                left: 3px;
+	                width: 6px;
+	                height: 6px;
+	                border-radius: 50%;
+	                background: #5A61ED;
+                }
+
+                input:checked ~ .checkmark:after {
+                    display: block;
+                }
+            }
+        }
+
+        .signUpForm__button {
+            width: 154px;
+            height: 32px;
+            border: none;
+            background: #5A61ED;
             font-size: 14px;
-            line-height: 16px;
+            line-height: 18px;
+            color: #fff;
+            font-family: 'PT Sans';
+            font-style: normal;
+            margin-top: 88px;
+            margin-left: 184px;
+            cursor: pointer;
+
+            &:hover {
+                background: lighten(#5A61ED, 5%);
+            }
+        }
+
+        p {
+            font-size: 13px;
+            line-height: 15px;
+            margin-top: 94px;
+            letter-spacing: -0.25px;
         }
     }
 }

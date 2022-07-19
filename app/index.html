@@ -58,10 +58,14 @@
 			<div>
 				<label class="signUpForm__label">Gender</label><br>
 				<span class="signUpForm__radio">
-					<input type="radio" name="genderChoice" id="male" value=true>
-					<label for="male">Male</label>
-					<input type="radio" name="genderChoice" id="female" value=false>
-					<label for="female">Female</label>
+					<label for="male">Male
+						<input type="radio" name="genderChoice" id="male" value=true>
+						<span class="checkmark"></span>
+					</label>
+					<label for="female">Female
+						<input type="radio" name="genderChoice" id="female" value=false>
+						<span class="checkmark"></span>
+					</label>
 				</span>
 			</div>
 			<div>
@@ -73,7 +77,7 @@
 				<input type="password" id="confirmPassword" class="signUpForm__input">
 			</div>
 			<p>Have an account? <a href="#">Login</a></p>
-			<button>Complete Signup</button>
+			<button class="signUpForm__button">Complete Signup</button>
 		</form>
 	</div>
 	<script src="js/common.js"></script>
