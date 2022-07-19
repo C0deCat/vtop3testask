@@ -86,6 +86,9 @@ body {
   flex-wrap: wrap;
   align-content: flex-start;
   height: 382px;
+  background: url(../img/pict.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }
 .signUpBlock .signUpForm div {
   margin-bottom: 10.3px;
