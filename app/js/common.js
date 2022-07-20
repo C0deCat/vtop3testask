@@ -108,7 +108,7 @@ emailInput.onchange = validateEmail;
 
 
 let passwordInput = document.getElementById("password");
-let passwordErrorMessage = document.querySelector(".errorMessage");
+let passwordErrorMessage = document.getElementById("passwordErrorMessage");
 
 function validatePassword() {
   let val = passwordInput.value;
@@ -133,3 +133,21 @@ function validatePassword() {
 }
 
 passwordInput.onkeyup = validatePassword;
+
+let confirmPasswordInput = document.getElementById("confirmPassword");
+let confirmPasswordErrorMessage = document.getElementById("confirmPasswordErrorMessage");
+
+function confirmPassword() {
+  if (passwordInput.value == confirmPasswordInput.value 
+    && confirmPasswordInput.classList.contains("inputError")) {
+      confirmPasswordInput.classList.remove("inputError");
+      confirmPasswordErrorMessage.innerHTML = "";
+  }
+  else if (passwordInput.value != confirmPasswordInput.value 
+    && !confirmPasswordInput.classList.contains("inputError")) {
+      confirmPasswordInput.classList.add("inputError");
+      confirmPasswordErrorMessage.innerHTML = "Введенные пароли должны совпадать!";
+    }
+}
+
+confirmPasswordInput.onkeyup = confirmPassword;
