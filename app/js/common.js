@@ -90,3 +90,46 @@ yearSelect.onchange = function() {
   daySelect.onchange = function() {
     previousDay = daySelect.value;
   }
+
+
+let emailInput = document.getElementById("email");
+
+function validateEmail() {
+  let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (emailInput.value.match(validRegex) && emailInput.classList.contains("inputError")) {
+      emailInput.classList.remove("inputError");
+  } 
+  else if (!emailInput.value.match(validRegex) && !emailInput.classList.contains("inputError")) {
+      emailInput.classList.add("inputError")
+  }
+}
+
+emailInput.onchange = validateEmail;
+
+
+let passwordInput = document.getElementById("password");
+let passwordErrorMessage = document.querySelector(".errorMessage");
+
+function validatePassword() {
+  let val = passwordInput.value;
+  let isValid;
+
+  if (val.match(/[a-z]/g) && val.match(/[A-Z]/g) && val.match(/[0-9]/g)
+  && val.length >= 8) {
+    isValid = true;
+  }
+  else {
+    isValid = false;
+  }
+
+  if (isValid && passwordInput.classList.contains("inputError")) {
+    passwordInput.classList.remove("inputError");
+    passwordErrorMessage.innerHTML = "";
+  }
+  else if (!isValid && !passwordInput.classList.contains("inputError")) {
+    passwordInput.classList.add("inputError");
+    passwordErrorMessage.innerHTML = "Пароль должен содержать от 8 символов, заглавные и строчные буквы";
+  } 
+}
+
+passwordInput.onkeyup = validatePassword;

@@ -112,6 +112,11 @@ body {
   padding: 4.5px 0 6.3px 0;
   width: 234.5px;
 }
+.signUpBlock .signUpForm .inputError {
+  border-color: #FF2222;
+  border-width: 0 0 2px 0;
+  color: #FF2222;
+}
 .signUpBlock .signUpForm .nationality {
   padding-bottom: 4.5px;
 }
@@ -195,6 +200,15 @@ body {
   line-height: 15px;
   margin-top: 94px;
   letter-spacing: -0.25px;
+}
+.signUpBlock .signUpForm .errorMessage {
+  font-size: 11px;
+  font-family: 'Work Sans', sans-serif;
+  color: #FF2222;
+  position: absolute;
+  display: block;
+  width: 234.5px;
+  padding-top: 2px;
 }
 @media (max-width: 660px) {
   .page {
