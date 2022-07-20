@@ -98,9 +98,11 @@ function validateEmail() {
   let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (emailInput.value.match(validRegex) && emailInput.classList.contains("inputError")) {
       emailInput.classList.remove("inputError");
+      emailInput.classList.add("checked");
   } 
   else if (!emailInput.value.match(validRegex) && !emailInput.classList.contains("inputError")) {
-      emailInput.classList.add("inputError")
+      emailInput.classList.add("inputError");
+      emailInput.classList.remove("checked");
   }
 }
 
