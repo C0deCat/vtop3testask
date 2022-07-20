@@ -95,6 +95,10 @@ body {
   margin-right: 15.3px;
   max-height: min-content;
 }
+.signUpBlock .signUpForm div:nth-child(7),
+.signUpBlock .signUpForm div:nth-child(8) {
+  margin-bottom: 30px;
+}
 .signUpBlock .signUpForm .signUpForm__label {
   font-size: 12px;
   line-height: 14px;
@@ -116,6 +120,13 @@ body {
   background-image: url(../img/checkmark.svg);
   background-repeat: no-repeat;
   background-position: center right;
+}
+.signUpBlock .signUpForm .inputSelect {
+  appearance: none;
+  background-image: url(../img/arrowdown.svg);
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
 }
 .signUpBlock .signUpForm .inputError {
   border-color: #FF2222;
@@ -193,7 +204,7 @@ body {
   color: #fff;
   font-family: 'PT Sans';
   font-style: normal;
-  margin-top: 88px;
+  margin-top: 68px;
   margin-left: 184px;
   cursor: pointer;
 }
@@ -203,7 +214,7 @@ body {
 .signUpBlock .signUpForm p {
   font-size: 13px;
   line-height: 15px;
-  margin-top: 94px;
+  margin-top: 74px;
   letter-spacing: -0.25px;
 }
 .signUpBlock .signUpForm .errorMessage {
@@ -219,6 +230,7 @@ body {
   .page {
     flex-direction: column;
     justify-content: flex-start;
+    width: 100%;
   }
   .leftHeader {
     flex-basis: auto;
@@ -241,9 +253,11 @@ body {
   }
   .signUpBlock {
     height: auto;
+    width: 100%;
   }
   .signUpBlock .signUpForm {
     height: auto;
+    flex-direction: column;
   }
   .signUpBlock .signUpForm .signUpForm__button {
     margin: 0;
@@ -254,5 +268,22 @@ body {
     margin: 0;
     margin-right: 15px;
     margin-bottom: 15px;
+  }
+}
+.fadeInDown {
+  animation: 500ms ease-out inputFadeInDown;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes inputFadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
