@@ -96,14 +96,16 @@ let emailInput = document.getElementById("email");
 
 function validateEmail() {
   let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (emailInput.value.match(validRegex) && emailInput.classList.contains("inputError")) {
+  let isValid = emailInput.value.match(validRegex);
+  if (isValid && emailInput.classList.contains("inputError")) {
       emailInput.classList.remove("inputError");
       emailInput.classList.add("checked");
   } 
-  else if (!emailInput.value.match(validRegex) && !emailInput.classList.contains("inputError")) {
+  else if (!isValid && !emailInput.classList.contains("inputError")) {
       emailInput.classList.add("inputError");
       emailInput.classList.remove("checked");
   }
+  return isValid;
 }
 
 emailInput.onchange = validateEmail;
@@ -131,7 +133,9 @@ function validatePassword() {
   else if (!isValid && !passwordInput.classList.contains("inputError")) {
     passwordInput.classList.add("inputError");
     passwordErrorMessage.innerHTML = "Пароль должен содержать от 8 символов, заглавные и строчные буквы";
-  } 
+  }
+  
+  return isValid;
 }
 
 passwordInput.onkeyup = validatePassword;
@@ -140,16 +144,16 @@ let confirmPasswordInput = document.getElementById("confirmPassword");
 let confirmPasswordErrorMessage = document.getElementById("confirmPasswordErrorMessage");
 
 function confirmPassword() {
-  if (passwordInput.value == confirmPasswordInput.value 
-    && confirmPasswordInput.classList.contains("inputError")) {
+  let isValid = passwordInput.value == confirmPasswordInput.value;
+  if (isValid && confirmPasswordInput.classList.contains("inputError")) {
       confirmPasswordInput.classList.remove("inputError");
       confirmPasswordErrorMessage.innerHTML = "";
   }
-  else if (passwordInput.value != confirmPasswordInput.value 
-    && !confirmPasswordInput.classList.contains("inputError")) {
+  else if (!isValid && !confirmPasswordInput.classList.contains("inputError")) {
       confirmPasswordInput.classList.add("inputError");
       confirmPasswordErrorMessage.innerHTML = "Введенные пароли должны совпадать!";
-    }
+  }
+  return isValid;
 }
 
 confirmPasswordInput.onkeyup = confirmPassword;
@@ -179,4 +183,21 @@ window.onload = function() {
   hideFormElements();
   setupAnimationEvents();
   showFormElement(formDivs[0]);
+};
+
+function validateForm() {
+  let firstNameInput = document.querySelector("#firstName");
+  let lastNameInput = document.querySelector("#lastName");
+  let isValid = firstNameInput.value.length > 0 && lastNameInput.value.length > 0 && validateEmail() && validatePassword() && confirmPassword();
+  console.log(isValid);
+  return isValid;
+}
+
+document.querySelector(".signUpForm__button").onclick = function() {
+  if (!validateForm()) {
+    $(".signUpForm__button").effect("shake", {distance: 4});
+  }
+  else {
+    document.querySelector(".popupText").classList.toggle("show");
+  }
 };
