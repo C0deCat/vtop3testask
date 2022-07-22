@@ -198,6 +198,12 @@ document.querySelector(".signUpForm__button").onclick = function() {
     $(".signUpForm__button").effect("shake", {distance: 4});
   }
   else {
-    document.querySelector(".popupText").classList.toggle("show");
+    document.querySelectorAll("select").forEach(elem => elem.querySelector("option").selected = "selected");
+    document.querySelectorAll("input").forEach(elem => elem.value = "");
+    $('.overlay').fadeIn();
   }
 };
+
+$('.close-popup').click( function() {
+  $('.overlay').fadeOut();
+});
