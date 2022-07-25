@@ -1,3 +1,49 @@
+let confirmPasswordInput = document.getElementById("confirmPassword");
+let confirmPasswordErrorMessage = document.getElementById("confirmPasswordErrorMessage");
+
+function confirmPassword() {
+  let isValid = passwordInput.value == confirmPasswordInput.value;
+  if (isValid && confirmPasswordInput.classList.contains("inputError")) {
+      confirmPasswordInput.classList.remove("inputError");
+      confirmPasswordErrorMessage.innerHTML = "";
+  }
+  else if (!isValid && !confirmPasswordInput.classList.contains("inputError")) {
+      confirmPasswordInput.classList.add("inputError");
+      confirmPasswordErrorMessage.innerHTML = "Введенные пароли должны совпадать!";
+  }
+  return isValid;
+}
+
+confirmPasswordInput.onkeyup = confirmPassword;
+let formDivs = document.querySelectorAll(".signUpForm div");
+
+function hideFormElements() {
+  formDivs.forEach(div => {
+    div.classList.add("hidden");
+  })
+}
+
+function showFormElement(elem) {
+  elem.classList.remove("hidden");
+  elem.classList.add("fadeInDown");
+}
+
+function setupAnimationEvents() {
+  for(let i = 0; i < formDivs.length-1; i++) {
+    formDivs[i].onclick = function() {
+      showFormElement(formDivs[i+1]);
+    }
+  }
+}
+
+window.onload = function() {
+  hideFormElements();
+  setupAnimationEvents();
+  showFormElement(formDivs[0]);
+};
+$('.close-popup').click( function() {
+    $('.overlay').fadeOut();
+  });
 var yearSelect = document.querySelector('#year');
 var monthSelect = document.querySelector('#month');
 var daySelect = document.querySelector('#day');
@@ -91,7 +137,6 @@ yearSelect.onchange = function() {
     previousDay = daySelect.value;
   }
 
-
 let emailInput = document.getElementById("email");
 
 function validateEmail() {
@@ -109,8 +154,24 @@ function validateEmail() {
 }
 
 emailInput.onchange = validateEmail;
-
-
+function validateForm() {
+    let firstNameInput = document.querySelector("#firstName");
+    let lastNameInput = document.querySelector("#lastName");
+    let isValid = firstNameInput.value.length > 0 && lastNameInput.value.length > 0 && validateEmail() && validatePassword() && confirmPassword();
+    console.log(isValid);
+    return isValid;
+  }
+  
+  document.querySelector(".signUpForm__button").onclick = function() {
+    if (!validateForm()) {
+      $(".signUpForm__button").effect("shake", {distance: 4});
+    }
+    else {
+      document.querySelectorAll("select").forEach(elem => elem.querySelector("option").selected = "selected");
+      document.querySelectorAll("input").forEach(elem => elem.value = "");
+      $('.overlay').fadeIn();
+    }
+  };
 let passwordInput = document.getElementById("password");
 let passwordErrorMessage = document.getElementById("passwordErrorMessage");
 
@@ -139,71 +200,3 @@ function validatePassword() {
 }
 
 passwordInput.onkeyup = validatePassword;
-
-let confirmPasswordInput = document.getElementById("confirmPassword");
-let confirmPasswordErrorMessage = document.getElementById("confirmPasswordErrorMessage");
-
-function confirmPassword() {
-  let isValid = passwordInput.value == confirmPasswordInput.value;
-  if (isValid && confirmPasswordInput.classList.contains("inputError")) {
-      confirmPasswordInput.classList.remove("inputError");
-      confirmPasswordErrorMessage.innerHTML = "";
-  }
-  else if (!isValid && !confirmPasswordInput.classList.contains("inputError")) {
-      confirmPasswordInput.classList.add("inputError");
-      confirmPasswordErrorMessage.innerHTML = "Введенные пароли должны совпадать!";
-  }
-  return isValid;
-}
-
-confirmPasswordInput.onkeyup = confirmPassword;
-
-let formDivs = document.querySelectorAll(".signUpForm div");
-
-function hideFormElements() {
-  formDivs.forEach(div => {
-    div.classList.add("hidden");
-  })
-}
-
-function showFormElement(elem) {
-  elem.classList.remove("hidden");
-  elem.classList.add("fadeInDown");
-}
-
-function setupAnimationEvents() {
-  for(let i = 0; i < formDivs.length-1; i++) {
-    formDivs[i].onclick = function() {
-      showFormElement(formDivs[i+1]);
-    }
-  }
-}
-
-window.onload = function() {
-  hideFormElements();
-  setupAnimationEvents();
-  showFormElement(formDivs[0]);
-};
-
-function validateForm() {
-  let firstNameInput = document.querySelector("#firstName");
-  let lastNameInput = document.querySelector("#lastName");
-  let isValid = firstNameInput.value.length > 0 && lastNameInput.value.length > 0 && validateEmail() && validatePassword() && confirmPassword();
-  console.log(isValid);
-  return isValid;
-}
-
-document.querySelector(".signUpForm__button").onclick = function() {
-  if (!validateForm()) {
-    $(".signUpForm__button").effect("shake", {distance: 4});
-  }
-  else {
-    document.querySelectorAll("select").forEach(elem => elem.querySelector("option").selected = "selected");
-    document.querySelectorAll("input").forEach(elem => elem.value = "");
-    $('.overlay').fadeIn();
-  }
-};
-
-$('.close-popup').click( function() {
-  $('.overlay').fadeOut();
-});

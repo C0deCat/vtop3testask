@@ -2,7 +2,8 @@ const { stream } = require('browser-sync');
 var gulp = require('gulp'), 
 less = require('gulp-less'),
 path = require ('path'),
-browserSync = require('browser-sync');
+browserSync = require('browser-sync'),
+concat = require('gulp-concat');
 
 
 gulp.task('less', function() {
@@ -26,6 +27,12 @@ gulp.task('browser-sync', function() {
 gulp.task('scripts', function() {
     return gulp.src(['app/js/**/*.js', 'app/libs/**/*.js'])
         .pipe(browserSync.reload({stream: true}))
+});
+
+gulp.task('buildjs', function(){
+    return gulp.src('app/js/scripts/*.js')
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest('app/js/'))
 });
 
 gulp.task('html', function() {
