@@ -1,0 +1,17 @@
+.fadeInDown {
+  animation: 500ms ease-out inputFadeInDown;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes inputFadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
